@@ -9,15 +9,26 @@
 
     {{ form|crispy }}
     <div class="col-12">
-        <p>Czy na pewno chesz usunąć "{{ object }}" ?</p>
-        <div class="col-2"></div>
-        <div class="col-4">
-            <button><a href="{% url 'buildings' %}">
-                Nie
-            </a></button>
-            <input type="submit" value="Tak">
+        <div class="row mb-4"></div>
+        <div class="row mb-4">
+            <div class="col"></div>
+            <div class="col-10">
+                <h6>Czy na pewno chesz usunąć "{{ object }}" ?</h6>
+            </div>
+            <div class="col"></div>
         </div>
-        <div class="col-2"></div>
+        <div class="row mb-4">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                <button class="btn btn-light">
+                    <a href="{% url redirection %}">
+                        Nie
+                    </a>
+                </button>
+                <input type="submit" class="btn btn-primary" value="Tak">
+            </div>
+            <div class="col-sm"></div>
+        </div>
     </div>
 
 </form>

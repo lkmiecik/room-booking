@@ -1,6 +1,6 @@
-from django.forms import ModelForm, CharField
+from django.forms import ModelForm, CharField, ModelChoiceField
 from django.core.exceptions import ValidationError
-from .models import Building
+from .models import Building, Room
 
 
 def zip_code_validator(value):
@@ -29,3 +29,12 @@ class BuildingForm(ModelForm):
         model = Building
         fields = '__all__'
 
+
+class RoomForm(ModelForm):
+    number = CharField(label='Numer')
+    area = CharField(label='Powierzchnia w m2')
+    building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
+
+    class Meta:
+        model = Room
+        fields = '__all__'

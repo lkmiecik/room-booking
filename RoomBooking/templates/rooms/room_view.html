@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Sala</h5>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>{{ room.id }}</td>
+    </tr>
+    <tr>
+        <td>Powierzchnia w m2</td>
+        <td>{{ room.area }}</td>
+    </tr>
+    <tr>
+        <td>Budynek</td>
+        <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
+    </tr>
+</table>
+
+{% endblock content %}
