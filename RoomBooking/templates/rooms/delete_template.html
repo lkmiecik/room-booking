@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form method="POST" novalidate>
+    {% csrf_token %}
+
+    {{ form|crispy }}
+    <div class="col-12">
+        <p>Czy na pewno chesz usunąć "{{ object }}" ?</p>
+        <div class="col-2"></div>
+        <div class="col-4">
+            <button><a href="{% url 'buildings' %}">
+                Nie
+            </a></button>
+            <input type="submit" value="Tak">
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+</form>
+
+{% endblock content %}

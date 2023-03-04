@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h2>REZERWACJA POKOI</h2>
+<h3>Lista pokoi</h3>
+{% for room in rooms %}
+    <div>
+        {{ room.number }}, {{ room.building.number }}
+    </div>
+{% endfor %}
+<hr />
+<h3>Lista użytkowników</h3>
+{% for user in users %}
+    {{ user }}
+{% endfor%}
+
+{% endblock content %}
+
