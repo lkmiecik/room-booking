@@ -1,5 +1,12 @@
 # HACKATHON 2023
 
+### Aplikacja używa następujących technologii
+
+- Język Python (wersja 3.10) https://www.python.org
+- Framework Django https://www.djangoproject.com
+- Bootstrap 4 https://getbootstrap.com/docs/4.0/getting-started/introduction
+
+
 ## Założenie konta github
 - Wejść na stronę github.com
 - Użyć przycisku Sign up
