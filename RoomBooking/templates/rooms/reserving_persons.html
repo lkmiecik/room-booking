@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Lista rezerwujących</h5>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th></th>
+    </tr>
+    {% for person in reserving_persons %}
+    <tr>
+        <td>
+            {{ person.id }}
+        </td>
+        <td>
+            {{ person.name }}
+        </td>
+        <td>
+            {{ person.surname }}
+        </td>
+        <td>
+            <a href="{% url 'reserving-person' person.id %}">Szczegóły</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-reserving-person' person.id %}">Usuń</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Rezerwujący</h5>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>{{ reserving_person.id }}</td>
+    </tr>
+    <tr>
+        <td>Imię</td>
+        <td>{{ reserving_person.name }}</td>
+    </tr>
+    <tr>
+        <td>Nazwisko</td>
+        <td>{{ reserving_person.surname }}</td>
+    </tr>
+</table>
+
+{% endblock content %}

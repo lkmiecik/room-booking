@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Room, Building
-from django.contrib.auth.models import User
-from .forms import BuildingForm, RoomForm
+from .models import Room, Building, ReservingPerson
+from .forms import BuildingForm, RoomForm, ReservingPersonForm
 
 
 # Create your views here.
@@ -95,3 +94,34 @@ def deleteBuilding(request, pk):
     context = {'object': building_to_delete, 'redirection': 'buildings'}
     return render(request, 'rooms/delete_template.html', context=context)
 
+
+def reservingPerson(request, pk):
+    reserving_person_obj = ReservingPerson.objects.get(id=pk)
+    context = {'reserving_person': reserving_person_obj}
+    return render(request, 'rooms/reserving_person_view.html', context)
+
+
+def reservingPersons(request):
+    all_reserving_persons = ReservingPerson.objects.distinct()
+    context = {'reserving_persons': all_reserving_persons}
+    return render(request, 'rooms/reserving_persons.html', context)
+
+
+def createReservingPerson(request):
+    form = ReservingPersonForm()
+    if request.method == 'POST':
+        form = ReservingPersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('reserving-persons')
+    context = {'form': form}
+    return render(request, 'rooms/reserving_person_form.html', context)
+
+
+def deleteReservingPerson(request, pk):
+    reserving_person_to_delete = ReservingPerson.objects.get(id=pk)
+    if request.method == 'POST':
+        reserving_person_to_delete.delete()
+        return redirect('reserving-persons')
+    context = {'object': reserving_person_to_delete, 'redirection': 'reserving-persons'}
+    return render(request, 'rooms/delete_template.html', context=context)

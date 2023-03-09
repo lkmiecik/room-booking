@@ -26,3 +26,12 @@ class Room(models.Model):
 
     def __str__(self):
         return f"Sala o numerze {self.number}"
+
+
+class ReservingPerson(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    name = models.CharField(max_length=32)
+    surname = models.CharField(max_length=32)
+
+    def __str__(self):
+        return f"Rezerwujacy {self.name} {self.surname}"

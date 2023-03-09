@@ -12,5 +12,8 @@ urlpatterns = [
     path('create-building/', views.createBuilding, name='create-building'),
     path('update-building/<str:pk>/', views.updateBuilding, name="update-building"),
     path('delete-building/<str:pk>/', views.deleteBuilding, name="delete-building"),
+    path('reserving-persons', views.reservingPersons, name='reserving-persons'),
+    path('reserving-person/<str:pk>/', views.reservingPerson, name="reserving-person"),
+    path('create-reserving-person/', views.createReservingPerson, name='create-reserving-person'),
+    path('delete-reserving-person/<str:pk>/', views.deleteReservingPerson, name="delete-reserving-person"),
 ]
-
