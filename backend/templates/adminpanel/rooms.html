@@ -1,0 +1,37 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+
+    <h5>Lista sal</h5>
+    <a href="{% url 'create-room' %}" class="btn btn-success">Dodaj salę!</a>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Numer</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for room in rooms %}
+            <tr>
+                <td>
+                    {{ room.id }}
+                </td>
+                <td>
+                    {{ room.nazwa_sali }}
+                </td>
+                <td>
+                    <a href="{% url 'room' room.id %}">Szczegóły</a>
+                </td>
+                <td>
+                    <a href="{% url 'update-room' room.id %}">Edytuj</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete-room' room.id %}">Usuń</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock content %}

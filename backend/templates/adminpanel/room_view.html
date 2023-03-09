@@ -1,0 +1,75 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+
+    <h5>Sala</h5>
+    <table class="table">
+        <tr>
+            <td>Id</td>
+            <td>{{ room.id }}</td>
+        </tr>
+        <tr>
+            <td>Nazwa sali</td>
+            <td>{{ room.nazwa_sali }}</td>
+        </tr>
+        <tr>
+            <td>Powierzchnia w m2</td>
+            <td>{{ room.area }}</td>
+        </tr>
+        <tr>
+            <td>Budynek</td>
+            <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
+        </tr>
+        <tr>
+            <td>Maksymalna ilość osób</td>
+            <td>{{ room.max_osob }}</td>
+        </tr>
+        <tr>
+            <td>Piętro</td>
+            <td>{{ room.pietro }}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada projektor?</td>
+            <td>{% if room.rzutnik %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada tablicę?</td>
+            <td>{% if room.tablica %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada system nagłośnienia?</td>
+            <td>{% if room.audio %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada możliwość zamówienia cateringu?</td>
+            <td>{% if room.catering %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada WiFi?</td>
+            <td>{% if room.wifi %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada system klimatyzacji?</td>
+            <td>{% if room.klimatyzacja %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Czy posiada ułatwnienia dla osób z niepełnosprawnościami?</td>
+            <td>{% if room.czy_dostepna_dla_osob_z_niepelnosprawnoscia %}Tak{% else %}Nie{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Id cennika</td>
+            <td>{{ room.cennik }}</td>
+        </tr>
+        <tr>
+            <td>Możliwa rezerwacja od</td>
+            <td>{{ room.mozliwosc_rezerwacji_od }}</td>
+        </tr>
+        <tr>
+            <td>Możliwa rezerwacja do</td>
+            <td>{{ room.mozliwosc_rezerwacji_do }}</td>
+        </tr>
+
+    </table>
+
+    <a href="{% url 'home' %}" class="btn btn-danger">Powrót</a>
+
+{% endblock content %}
