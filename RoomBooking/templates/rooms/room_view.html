@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h5>Sala</h5>
+<h5>Sala {{ room.number }}</h5>
 <table class="table">
     <tr>
         <td>Id</td>
@@ -37,6 +37,39 @@
         <td>Tak</td>
         {% else %}
         <td>Nie</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td>Rezerwacje sali</td>
+        {% if reservations %}
+        <td>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Rezerwujący</th>
+                    <th>Data</th>
+                    <th>Godziny</th>
+                </tr>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>
+                        <a href="{% url 'reservation' reservation.id %}">{{ reservation.id }}</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'reserving-person' reservation.reserving_person.id %}">{{ reservation.reserving_person }}</a>
+                    </td>
+                    <td>
+                        {{ reservation.date }}
+                    </td>
+                    <td>
+                        {{ reservation.start_time }} - {{ reservation.end_time }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+        {% else %}
+        <td>Brak</td>
         {% endif %}
     </tr>
 </table>

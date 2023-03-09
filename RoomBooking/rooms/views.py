@@ -14,7 +14,8 @@ def rooms(request):
 
 def room(request, pk):
     room_obj = Room.objects.get(id=pk)
-    context = {'room': room_obj}
+    reservations = Reservation.objects.filter(room=room_obj)
+    context = {'room': room_obj, 'reservations': reservations}
     return render(request, 'rooms/room_view.html', context)
 
 
