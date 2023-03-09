@@ -10,6 +10,21 @@
 </style>
 
 <h5>{{name}}</h5>
+<hr>
+<h6>Informacje o sali:</h6>
+    <section>
+        <p>
+            Pojemność: <br>
+            Powierzchnia: <br>
+            Wyposażenie: <br>
+            Dostęp dla osób z niepełnosprawnością: <br>
+            Piętro: <br>
+            Budynek: <br>
+            Dostępność w danym terminie: <br>
+        </p>
+    </section>
+<hr>
+<h6>Zarezerwuj sale:</h6>
 <form>
     Data rezerwacji:
     <input type="date"><br>
@@ -20,10 +35,10 @@
         {% endfor %}
     </select><br>
     Długość rezerwacji: (godzina:minuta)
-    <input type="number" class='time-input' min='0' max='23' required >:
+    <input type="number" class='time-input' min='0' max='23' required > :
     <input type="number" class='time-input' min="0" max="59"required>
-    <hr>
-    <button type="submit" value="Zatwierdź">Zatwierdź</button>
+    <br>
+    <button type="submit" value="Submit">Zarezerwuj</button>
 </form>
 
 {% endblock content %}
