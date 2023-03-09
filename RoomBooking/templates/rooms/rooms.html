@@ -6,7 +6,7 @@
     <tr>
         <th>Id</th>
         <th>Numer</th>
-        <th></th>
+        <th>Ilosc Osob</th>
     </tr>
     {% for room in rooms %}
     <tr>
@@ -15,6 +15,10 @@
         </td>
         <td>
             {{ room.number }}
+        </td>
+        <td>
+
+            {{room.po}}
         </td>
         <td>
             <a href="{% url 'room' room.id %}">Szczegóły</a>
