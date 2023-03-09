@@ -69,7 +69,7 @@ class ReservationForm(ModelForm):
     rezerwujacy = CharField(label='Rezerwujacy')
     room = ModelChoiceField(label='Pokoj', queryset=Room.objects.all())
     date = DateTimeField(label='Data', validators=[date_validator])
-    duration = TimeField(label='Czas trwania', validators=[res_validator])
+    duration = TimeField(label='Czas trwania', validators=[res_validator, date_validator])
 
     class Meta:
         model = Reservation
