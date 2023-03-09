@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Room, Building, ReservingPerson
-from .forms import BuildingForm, RoomForm, ReservingPersonForm
+from .models import Room, Building, ReservingPerson, Reservation
+from .forms import BuildingForm, RoomForm, ReservingPersonForm, ReservationForm
 
 
 # Create your views here.
@@ -125,3 +125,47 @@ def deleteReservingPerson(request, pk):
         return redirect('reserving-persons')
     context = {'object': reserving_person_to_delete, 'redirection': 'reserving-persons'}
     return render(request, 'rooms/delete_template.html', context=context)
+
+
+def reservation(request, pk):
+    reservation_obj = Reservation.objects.get(id=pk)
+    context = {'reservation': reservation_obj}
+    return render(request, 'rooms/reservation_view.html', context)
+
+
+def reservations(request):
+    all_reservations = Reservation.objects.distinct()
+    context = {'reservations': all_reservations}
+    return render(request, 'rooms/reservations.html', context)
+
+
+def createReservation(request):
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('reservations')
+    context = {'form': form}
+    return render(request, 'rooms/reservation_form.html', context)
+
+
+def deleteReservation(request, pk):
+    reservation_to_delete = Reservation.objects.get(id=pk)
+    if request.method == 'POST':
+        reservation_to_delete.delete()
+        return redirect('reservations')
+    context = {'object': reservation_to_delete, 'redirection': 'reservations'}
+    return render(request, 'rooms/delete_template.html', context=context)
+
+
+def updateReservation(request, pk):
+    reservation_obj = Reservation.objects.get(id=pk)
+    form = ReservationForm(instance=reservation_obj)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('reservations')
+    context = {'form': form}
+    return render(request, 'rooms/reservation_form.html', context)

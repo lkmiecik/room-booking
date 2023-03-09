@@ -34,4 +34,16 @@ class ReservingPerson(models.Model):
     surname = models.CharField(max_length=32)
 
     def __str__(self):
-        return f"Rezerwujacy {self.name} {self.surname}"
+        return f"{self.name} {self.surname}"
+
+
+class Reservation(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    reserving_person = models.ForeignKey(ReservingPerson, on_delete=models.CASCADE)
+    date = models.DateField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+
+    def __str__(self):
+        return f"Rezerwacja {self.room} od {self.start_time} do {self.end_time} przez {self.reserving_person}"

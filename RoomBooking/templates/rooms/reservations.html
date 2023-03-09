@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Lista rezerwacji</h5>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Sala</th>
+        <th>Rezerwujący</th>
+        <th>Dzień</th>
+        <th>Godziny</th>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+        <td>
+            {{ reservation.id }}
+        </td>
+        <td>
+            <a href="{% url 'room' reservation.room.id %}">{{ reservation.room.number }}</a>
+        </td>
+        <td>
+            <a href="{% url 'reserving-person' reservation.reserving_person.id %}">{{ reservation.reserving_person }}</a>
+        </td>
+        <td>
+            {{ reservation.date }}
+        </td>
+        <td>
+            {{ reservation.start_time }} - {{ reservation.end_time }}
+        </td>
+        <td>
+            <a href="{% url 'reservation' reservation.id %}">Szczegóły</a>
+        </td>
+        <td>
+            <a href="{% url 'update-reservation' reservation.id %}">Edytuj</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-reservation' reservation.id %}">Usuń</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
