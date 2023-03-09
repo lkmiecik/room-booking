@@ -1,7 +1,7 @@
 <div class="navbar">
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">Hackathon 2023</a>
+        <a class="nav-link" href="{% url 'index' %}">RoomBooking</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Budynki</a>
@@ -15,6 +15,20 @@
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{% url 'rooms' %}">Lista Sal</a>
             <a class="dropdown-item" href="{% url 'create-room' %}">Dodaj Salę</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rezerwujący</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'presenters' %}">Lista Rezerwujących</a>
+            <a class="dropdown-item" href="{% url 'create-presenter' %}">Dodaj Rezerwującego</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rezerwacje</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'bookings' %}">Lista Rezerwacji</a>
+            <a class="dropdown-item" href="{% url 'create-booking' %}">Dodaj Rezerwacje</a>
         </div>
     </li>
 </ul>

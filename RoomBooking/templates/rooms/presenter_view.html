@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Rezerwujący</h5>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>{{ presenter.id }}</td>
+    </tr>
+    <tr>
+        <td>Imię i nazwisko</td>
+        <td>{{ presenter.name }}</td>
+    </tr>
+</table>
+<h5>Wykonane Rezerwacje</h5>
+<table class="table">
+    <tr>
+        <th>Sala</th>
+        <th>Nazwa</th>
+    </tr>
+    {% for booking in bookings %}<tr>
+        <td>
+            {{ booking.room }}
+        </td>
+        <td>
+            {{ booking.start }} - {{ booking.end }}
+        </td>
+        <td>
+            <a href="{% url 'booking' booking.id %}">Szczegóły</a>
+        </td>
+    </tr>{% endfor %}
+</table>
+
+{% endblock content %}

@@ -15,6 +15,33 @@
         <td>Budynek</td>
         <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
     </tr>
+    <tr>
+        <td>Ugodnienia</td>
+        <td>{% for m in meta %}
+          <span>{{ m }}</span>{% if not forloop.last %}, {% endif %}
+        {% endfor %}</td>
+    </tr>
 </table>
+<h5>Rezerwacje w Sali</h5>
+<table class="table">
+     <tr>
+        <th>Nazwa</th>
+        <th>Okres</th>
+        <th></th>
+    </tr>
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.start }} - {{ booking.end }}</td>
+        <td><a href="{% url 'booking' booking.id %}">Szczegóły</a></td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="3" class="text-center">
+            <a href="{% url 'book-room' room.id %}" class="btn btn-primary my-2">Zarezerwuj</a>
+        </td>
+    </tr>
+</table>
+
 
 {% endblock content %}

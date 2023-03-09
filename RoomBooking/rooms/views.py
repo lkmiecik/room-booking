@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Room, Building
+from .models import Room, Building, Presenter, Booking, RoomMetadata, MetadataName
 from django.contrib.auth.models import User
-from .forms import BuildingForm, RoomForm
+from .forms import PresenterForm, RoomForm, BookingForm, BuildingForm
 
 
 # Create your views here.
@@ -15,7 +15,9 @@ def rooms(request):
 
 def room(request, pk):
     room_obj = Room.objects.get(id=pk)
-    context = {'room': room_obj}
+    room_bookings = Booking.objects.filter(room=room_obj).order_by('start')
+    meta = [MetadataName(name).display() for name in RoomMetadata.objects.filter(room=room_obj).values_list('name', flat=True)]
+    context = {'room': room_obj, 'bookings': room_bookings, 'meta': meta}
     return render(request, 'rooms/room_view.html', context)
 
 
@@ -94,4 +96,106 @@ def deleteBuilding(request, pk):
         return redirect('buildings')
     context = {'object': building_to_delete, 'redirection': 'buildings'}
     return render(request, 'rooms/delete_template.html', context=context)
+
+
+def presenters(request):
+    all_pres = Presenter.objects.distinct()
+    context = {'presenters': all_pres}
+    return render(request, 'rooms/presenters.html', context)
+
+
+def presenter(request, pk):
+    presenter_obj = Presenter.objects.get(id=pk)
+    bookings = Booking.objects.filter(presenter=presenter_obj).order_by('start')
+    context = {'presenter': presenter_obj, 'bookings': bookings}
+    return render(request, 'rooms/presenter_view.html', context)
+
+
+def createPresenter(request):
+    form = PresenterForm()
+    if request.method == 'POST':
+        form = PresenterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('presenters')
+    context = {'form': form}
+    return render(request, 'rooms/presenter_form.html', context)
+
+
+def updatePresenter(request, pk):
+    room_obj = Presenter.objects.get(id=pk)
+    form = PresenterForm(instance=room_obj)
+    if request.method == 'POST':
+        form = PresenterForm(request.POST, instance=room_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('presenters')
+    context = {'form': form}
+    return render(request, 'rooms/presenter_form.html', context)
+
+
+def deletePresenter(request, pk):
+    presenter_to_delete = Presenter.objects.get(id=pk)
+    if request.method == 'POST':
+        presenter_to_delete.delete()
+        return redirect('presenters')
+    obj_str = f'Rezerwującego {presenter_to_delete.name}'
+    context = {'object': obj_str, 'redirection': 'presenters'}
+    return render(request, 'rooms/delete_template.html', context=context)
+
+
+def bookings(request):
+    all_pres = Booking.objects.distinct()
+    context = {'bookings': all_pres}
+    return render(request, 'rooms/bookings.html', context)
+
+
+def booking(request, pk):
+    room_obj = Booking.objects.get(id=pk)
+    context = {'booking': room_obj}
+    return render(request, 'rooms/booking_view.html', context)
+
+
+def createBooking(request):
+    form = BookingForm()
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'rooms/booking_form.html', context)
+
+
+def updateBooking(request, pk):
+    room_obj = Booking.objects.get(id=pk)
+    form = BookingForm(instance=room_obj)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=room_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'rooms/booking_form.html', context)
+
+
+def deleteBooking(request, pk):
+    room_to_delete = Booking.objects.get(id=pk)
+    if request.method == 'POST':
+        room_to_delete.delete()
+        return redirect('bookings')
+    obj_str = f'Rezerwacje o nazwie {room_to_delete.name}'
+    context = {'object': obj_str, 'redirection': 'presenters'}
+    return render(request, 'rooms/delete_template.html', context=context)
+
+
+def bookRoom(request, pk):
+    form = BookingForm(initial={'room': pk})
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'rooms/booking_form.html', context)
 

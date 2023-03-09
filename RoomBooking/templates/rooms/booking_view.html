@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Rezerwacja</h5>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>{{ booking.id }}</td>
+    </tr>
+    <tr>
+        <td>Nazwa</td>
+        <td>{{ booking.name }}</td>
+    </tr>
+    <tr>
+        <td>Początek</td>
+        <td>{{ booking.start }}</td>
+    </tr>
+    <tr>
+        <td>Koniec</td>
+        <td>{{ booking.end }}</td>
+    </tr>
+    <tr>
+        <td>Sala</td>
+        <td><a href="{% url 'room' booking.room.id %}">{{ booking.room }} w {{ booking.room.building }}</a></td>
+    </tr>
+    <tr>
+        <td>Rezerwujący</td>
+        <td><a href="{% url 'presenter' booking.presenter.id %}">{{ booking.presenter }}</a></td>
+    </tr>
+</table>
+
+{% endblock content %}
