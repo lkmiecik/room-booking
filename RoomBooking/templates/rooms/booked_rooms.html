@@ -24,6 +24,12 @@
             {{ reservation.date }}
         </td>
 
+        <td>
+            <a href="{% url 'update-book' reservation.id %}">Edytuj</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-book' reservation.id %}">Usuń</a>
+        </td>
     </tr>
 
     {% endfor %}

@@ -15,5 +15,7 @@ urlpatterns = [
 
     path('book-room', views.bookRoom, name="book-room"),
     path('booked-rooms', views.reservations, name="booked-rooms"),
+    path('delete-book/<str:pk>/', views.deleteReservation, name="delete-book"),
+    path('update-book/<str:pk>/', views.updateReservation, name="update-book"),
 ]
 

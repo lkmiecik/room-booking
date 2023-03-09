@@ -21,6 +21,27 @@ def bookRoom(request):
 
     return render(request, 'rooms/room_book.html', context)
 
+def deleteReservation(request, pk):
+    res_to_delete = Reservation.objects.get(id=pk)
+    if request.method == 'POST':
+        res_to_delete.delete()
+        return redirect('booked-rooms')
+    obj_str = f'Usunięto rezerwacje {res_to_delete.rezerwujacy}'
+    context = {'object': obj_str, 'redirection': 'booked-rooms'}
+    return render(request, 'rooms/delete_template.html', context=context)
+
+
+def updateReservation(request, pk):
+    res_obj = Reservation.objects.get(id=pk)
+    form = ReservationForm(instance=res_obj)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=res_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('booked-rooms')
+    context = {'form': form}
+    return render(request, 'rooms/room_book.html', context)
+
 def rooms(request):
     all_rooms = Room.objects.distinct()
     context = {'rooms': all_rooms}
