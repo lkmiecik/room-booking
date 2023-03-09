@@ -1,6 +1,7 @@
-from django.forms import ModelForm, CharField, ModelChoiceField, BooleanField, TimeField
+from django.forms import ModelForm, CharField, ModelChoiceField, BooleanField, TimeField, DateTimeField
 from django.core.exceptions import ValidationError
 from .models import Building, Room, Reservation
+from datetime import datetime
 
 
 def zip_code_validator(value):
@@ -17,6 +18,26 @@ def zip_code_validator(value):
                 raise ValidationError(error_message)
             if i != 2 and not value[i].isdigit():
                 raise ValidationError(error_message)
+
+def res_validator(value):
+    error_message = "Niepoprawna data"
+
+    if value.hour > 8:
+        raise ValidationError(error_message)
+
+    if value.hour < 1 and value.minute < 15:
+        raise ValidationError(error_message)
+
+
+def date_validator(value):
+    error_message = "Niepoprawna data"
+
+    if value.minute == 15 or value.minute == 30 or value.minute == 45 or value.minute == 0:
+        return True
+    else:
+        print(value.minute)
+        raise ValidationError(error_message)
+
 
 
 class BuildingForm(ModelForm):
@@ -47,8 +68,8 @@ class RoomForm(ModelForm):
 class ReservationForm(ModelForm):
     rezerwujacy = CharField(label='Rezerwujacy')
     room = ModelChoiceField(label='Pokoj', queryset=Room.objects.all())
-    date = CharField(label='Data')
-    duration = TimeField(label='Czas trwania')
+    date = DateTimeField(label='Data', validators=[date_validator])
+    duration = TimeField(label='Czas trwania', validators=[res_validator])
 
     class Meta:
         model = Reservation
