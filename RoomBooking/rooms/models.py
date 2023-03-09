@@ -20,7 +20,7 @@ class Room(models.Model):
     area = models.CharField(null=True, blank=True, max_length=3)
     capacity = models.DecimalField(null=True, blank=True, decimal_places=0, max_digits=4)
     eqiupment = models.CharField(null=True, blank=True, max_length=200)
-    disabledFriendly = models.BooleanField(null=True, blank=False)
+    disabledFriendly = models.BooleanField(null=False)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     floor = models.CharField(max_length=2)
 
@@ -33,6 +33,7 @@ class Reservation(models.Model):
     rezerwujacy = models.CharField(max_length=64, null=True, blank=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     date = models.DateTimeField()
+    duration = models.TimeField()
 
     def __str__(self):
         return f"Rezerwacja dla {self.rezerwujacy}"
