@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <style>
@@ -26,20 +28,11 @@
 <hr>
 
 <h6>Zarezerwuj sale:</h6>
-<form>
-    Data rezerwacji:
-    <input type="date"><br>
-    Godzina rezerwacji:
-    <select>
-        {% for option in options %}
-        <option>{{ option }}</option>
-        {% endfor %}
-    </select><br>
-    Długość rezerwacji: (godzina:minuta)
-    <input type="number" class='time-input' min='0' max='23' required > :
-    <input type="number" class='time-input' min="0" max="59"required>
-    <br>
-    <button type="submit" value="Submit">Zarezerwuj</button>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <input type="submit" class="btn btn-success">
 </form>
 
 {% endblock content %}

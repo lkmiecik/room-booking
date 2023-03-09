@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Room, Building
 from django.contrib.auth.models import User
-from .forms import BuildingForm, RoomForm
+from .forms import BuildingForm, RoomForm, ReservationForm
 
 
 # Create your views here.
@@ -54,15 +54,21 @@ def reserve_room(request, pk):
         return hours
 
     room_to_reserve = Room.objects.get(id=pk)
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = RoomForm(request.POST, instance=room_to_reserve)
+        if form.is_valid():
+            form.save()
+            return redirect('rooms')
     hours = get_hour_list()
     handicapped = "tak"
-    if not room_to_reserve.handicapped:
-        handicapped = "nie"
+
     context = {
         'options': hours,
         'room': room_to_reserve,
         'building': room_to_reserve.building,
-        'handicapped': handicapped
+        'handicapped': handicapped,
+        'form': form,
     }
     return render(request, 'rooms/room_reserve.html', context)
 

@@ -1,6 +1,6 @@
-from django.forms import ModelForm, CharField, ModelChoiceField
+from django.forms import ModelForm, CharField, ModelChoiceField, IntegerField, BooleanField, DateTimeField, TimeField
 from django.core.exceptions import ValidationError
-from .models import Building, Room
+from .models import Building, Room, Reservation
 
 
 def zip_code_validator(value):
@@ -34,7 +34,21 @@ class RoomForm(ModelForm):
     number = CharField(label='Numer')
     area = CharField(label='Powierzchnia w m2')
     building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
+    volume = IntegerField(label='Pojemnosc (ludzie)')
+    floor = IntegerField(label='Pietro')
+    handicapped = BooleanField(label='Dostęp dla osób z niepełnosprawnością')
+    equipment = CharField(label='Wyposazenie')
 
     class Meta:
         model = Room
         fields = '__all__'
+
+
+class ReservationForm(ModelForm):
+    start = DateTimeField(label='Rozpoczecie')
+    time = TimeField(label='Dlugosc')
+
+    class Meta:
+        model = Reservation
+        fields = '__all__'
+
