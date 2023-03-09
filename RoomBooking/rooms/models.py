@@ -1,4 +1,5 @@
 import uuid
+from enum import Enum
 
 from django.db import models
 
@@ -23,6 +24,29 @@ class Room(models.Model):
 
     def __str__(self):
         return f"Sala o numerze {self.number}"
+
+
+class MetadataName(Enum):
+    wheelchair_access = 'wheelchair_access'
+    projector = 'projector'
+    whiteboard = 'whiteboard'
+    speakers = 'speakers'
+    def display(self):
+        translations = {
+            MetadataName.wheelchair_access: 'Dostęp dla wózków',
+            MetadataName.projector: 'Projektor',
+            MetadataName.whiteboard: 'Tablica',
+            MetadataName.speakers: 'Głośniki',
+        }
+        return translations.get(self, self.value)
+
+class RoomMetadata(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    name = models.CharField(choices=[(e.value, e.name) for e in MetadataName], max_length=50)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Presenter(models.Model):

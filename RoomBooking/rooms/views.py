@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Room, Building, Presenter, Booking
+from .models import Room, Building, Presenter, Booking, RoomMetadata, MetadataName
 from django.contrib.auth.models import User
-from .forms import PresenterForm, RoomForm, BookingForm
+from .forms import PresenterForm, RoomForm, BookingForm, BuildingForm
 
 
 # Create your views here.
@@ -16,7 +16,8 @@ def rooms(request):
 def room(request, pk):
     room_obj = Room.objects.get(id=pk)
     room_bookings = Booking.objects.filter(room=room_obj).order_by('start')
-    context = {'room': room_obj, 'bookings': room_bookings}
+    meta = [MetadataName(name).display() for name in RoomMetadata.objects.filter(room=room_obj).values_list('name', flat=True)]
+    context = {'room': room_obj, 'bookings': room_bookings, 'meta': meta}
     return render(request, 'rooms/room_view.html', context)
 
 
@@ -66,9 +67,9 @@ def building(request, pk):
 
 
 def createBuilding(request):
-    form = PresenterForm()
+    form = BuildingForm()
     if request.method == 'POST':
-        form = PresenterForm(request.POST)
+        form = BuildingForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('buildings')
@@ -78,9 +79,9 @@ def createBuilding(request):
 
 def updateBuilding(request, pk):
     building_obj = Building.objects.get(id=pk)
-    form = PresenterForm(instance=building_obj)
+    form = BuildingForm(instance=building_obj)
     if request.method == 'POST':
-        form = PresenterForm(request.POST, instance=building_obj)
+        form = BuildingForm(request.POST, instance=building_obj)
         if form.is_valid():
             form.save()
             return redirect('buildings')

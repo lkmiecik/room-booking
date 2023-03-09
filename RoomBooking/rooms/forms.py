@@ -1,8 +1,9 @@
 from datetime import datetime
 
-from django.forms import ModelForm, CharField, ModelChoiceField, DateTimeField, DateTimeInput, IntegerField
+from django.forms import ModelForm, CharField, ModelChoiceField, DateTimeField, DateTimeInput, IntegerField, \
+    ModelMultipleChoiceField, BooleanField
 from django.core.exceptions import ValidationError
-from .models import Building, Room, Booking, Presenter
+from .models import Building, Room, Booking, Presenter, MetadataName, RoomMetadata
 
 
 def zip_code_validator(value):
@@ -37,6 +38,24 @@ class RoomForm(ModelForm):
     area = CharField(label='Powierzchnia w m2')
     building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
     floor_number = IntegerField(label='Pientro')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name in MetadataName:
+            init = RoomMetadata.objects.filter(room=self.instance.id, name=name.value).first()
+            self.fields[name.value] = BooleanField(label=name.name, required=False, initial=init)
+
+    def save(self, commit=True):
+        room = super().save(commit=False)
+
+        if commit:
+            room.save()
+
+        RoomMetadata.objects.filter(room=room).delete()
+        for name in MetadataName:
+            if self.cleaned_data.get(name.value):
+                RoomMetadata.objects.create(name=name.value, room=room)
+        return room
 
     class Meta:
         model = Room
@@ -74,11 +93,13 @@ class BookingForm(ModelForm):
 
     def room_label(self, obj: Room):
         return f"Sala o numerze {obj.number} w budynku {obj.building.number}"
+
     def clean(self):
         cleaned_data = super().clean()
         start_time = cleaned_data.get('start')
         end_time = cleaned_data.get('end')
         room = cleaned_data.get('room')
+        booking_id = self.instance.id if self.instance else None
 
         if start_time and end_time and start_time >= end_time:
             raise ValidationError('Godzina zakończenia musi być późniejsza niż godzina rozpoczęcia.')
@@ -86,7 +107,7 @@ class BookingForm(ModelForm):
         if (end_time - start_time).seconds // 3600 > 8:
             raise ValidationError('Rezerwacja nie może trwać dłużej niż 8 godzin.')
 
-        if Booking.objects.filter(room=room, start__lt=end_time, end__gt=start_time):
+        if Booking.objects.filter(room=room, start__lt=end_time, end__gt=start_time).exclude(id=booking_id):
             raise ValidationError('Wybrana sala jest już zarezerwowana w tym czasie.')
 
         return cleaned_data
