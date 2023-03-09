@@ -3,7 +3,6 @@ from django.core.exceptions import ValidationError
 from .models import Building, Room, ReservingPerson, Reservation
 from django import forms
 
-
 class DateInput(forms.DateInput):
     input_type = 'date'
 
@@ -78,18 +77,42 @@ class ReservationForm(ModelForm):
         model = Reservation
         fields = '__all__'
 
-    def clean(self):
-        a = True
+    def overlap(self, min1, max1, min2, max2):
+        return max(0, min(max1, max2) - max(min1, min2))
 
+    def clean(self):
+        date_time = self.data["date"]
         (start_hour, start_min, *_) = str.split(self.data["start_time"], ':')
         (end_hour, end_min, *_) = str.split(self.data["end_time"], ':')
 
-        period = (int(end_hour) - int(start_hour)) * 60 + (int(end_min) - int(start_min))
+        start_hour = int(start_hour)
+        start_min = int(start_min)
+        end_hour = int(end_hour)
+        end_min = int(end_min)
+
+        self.validatePeirod(start_hour, start_min, end_hour, end_min)
+
+        for reservation in Reservation.objects.all():
+            if reservation.room.id == self.data["room"]:
+                if reservation.date == date_time:
+                    this_start = start_hour * 100 + start_min
+                    this_end = end_hour * 100 + end_min
+                    other_start = int(reservation.start_time.split(':')[0]) * 100 + int(reservation.start_time.split(':')[1])
+                    other_end = int(reservation.end_time.split(':')[0]) * 100 + int(reservation.end_time.split(':')[1])
+
+                    if self.overlap(this_start, this_end, other_start, other_end) > 0:
+                        raise ValidationError("Sala jest już zajęta w tym czasie")
+
+        return self.cleaned_data
+
+    def validatePeirod(self, start_hour, start_min, end_hour, end_min):
+        if (end_hour * 60 + end_min) < (start_hour * 60 + start_min):
+            period = (((24 - start_hour) * 60) + start_min) + ((end_hour * 60) + end_min)
+        else:
+            period = (end_hour - start_hour) * 60 + (end_min - start_min)
 
         if period < 15:
             raise ValidationError("Minimalny czas rezerwacji to 15 minut")
 
         if period > 8 * 60:
             raise ValidationError("Maksymalny czas rezerwacji to 8 godzin")
-
-        return self.cleaned_data
