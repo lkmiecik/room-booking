@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Room, Building
 from django.contrib.auth.models import User
-from .forms import BuildingForm, RoomForm
+from .forms import BuildingForm, RoomForm, ReservationForm
 
 
 # Create your views here.
@@ -9,7 +9,15 @@ def reservations(request):
     return render(request, 'rooms/booked_rooms.html')
 
 def bookRoom(request):
-    return render(request, 'rooms/room_book.html')
+    form = ReservationForm
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('reservations')
+    context = {'form': form}
+
+    return render(request, 'rooms/room_book.html', context)
 
 def rooms(request):
     all_rooms = Room.objects.distinct()
