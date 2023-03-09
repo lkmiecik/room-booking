@@ -1,0 +1,1157 @@
+<h1 class="text-4xl font-bold justify-center text-center my-12">
+  Witaj w systemie rezerwacji sal "Room Booking"
+</h1>
+<br />
+<div class="" style="margin-bottom: 50px !important">
+  Legenda: <br />
+  🟥 - Sale zarezerwowane na cały dzień. <br />
+  🟨 - Sale w dniu częściowo zarezerwowane <br />
+  🟩 - Sale niezarezerwowane. <br />
+</div>
+<div
+  class="flex-grow flex-col bg-white border-t border-b sm:rounded sm:border shadow overflow-hidden"
+>
+  <div class="border-b">
+    <div class="flex justify-between pl-6 -mb-px">
+      <h3 class="text-blue-dark py-4 font-normal text-lg" style="margin-left: 10px; text-align: center;" > Wybierz Dzień:</h3>
+      <div class="flex"></div>
+    </div>
+  </div>
+  <div class="flex px-2 py-2 -mb-px">
+    <div class="flex flex-wrap bg-white overflow-hidden">
+      <div
+        class="w-auto mx-3 my-3 border-solid border-grey-light rounded border shadow-sm" style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Styczeń 2023
+        </div>
+        <div class="">
+          <table class="">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()" (onclick)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer bg-blue"
+              >
+                6
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer bg-blue"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                29
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                30
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                31
+              </td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="mx-3 my-3 border-solid border-grey-light rounded border shadow-sm"
+        style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Luty 2023
+        </div>
+        <div class="w-1/2">
+          <table class="w-full">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                6
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="w-auto mx-3 my-3 border-solid border-grey-light rounded border shadow-sm"
+        style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Marzec 2023
+        </div>
+        <div class="">
+          <table class="w-full">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                6
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="w-auto mx-3 my-3 border-solid border-grey-light rounded border shadow-sm"
+        style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Kwiecień 2023 
+        </div>
+        <div class="">
+          <table class="w-full">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                6
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                29
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                30
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                31
+              </td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="w-auto mx-3 my-3 border-solid border-grey-light rounded border shadow-sm"
+        style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Maj 2023
+        </div>
+        <div class="">
+          <table class="w-full">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                6
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                29
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                30
+              </td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div
+        class="w-auto mx-3 my-3 border-solid border-grey-light rounded border shadow-sm"
+        style="max-width: 500px;"
+      >
+        <div
+          class="bg-grey-lighter px-2 py-2 border-solid border-grey-light border-b text-center"
+        >
+          Czerwiec 2023
+        </div>
+        <div class="">
+          <table class="w-full">
+            <tr class="border-b">
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">W</th>
+              <th class="py-3 px-4">Ś</th>
+              <th class="py-3 px-4">C</th>
+              <th class="py-3 px-4">P</th>
+              <th class="py-3 px-4">S</th>
+              <th class="py-3 px-4">N</th>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"></td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                1
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                2
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                3
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                4
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                5
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                6
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                7
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                8
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                9
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                10
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                11
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                12
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                13
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                14
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                15
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                16
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                17
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                18
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                19
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                20
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                21
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                22
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                23
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                24
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                25
+              </td>
+            </tr>
+            <tr>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                26
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                27
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                28
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                29
+              </td>
+              <td (click)="navigateToData()"
+                class="py-3 px-4 hover:bg-blue hover:text-white text-center cursor-pointer"
+              >
+                30
+              </td>
+              <td (click)="navigateToData()"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Numer</th>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rezerwujacy of rezerwujace">
+        <td>{{rezerwujacy.id}}</td>
+        <td>{{rezerwujacy.firstName}}</td>
+        <td>{{rezerwujacy.lastName}}</td>
+      </tr>
+    </tbody>
+</table>
