@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Lista rezerwujących</h5>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Imię i Nazwisko</th>
+        <th></th>
+    </tr>
+    {% for presenter in presenters %}
+    <tr>
+        <td>
+            {{ presenter.id }}
+        </td>
+        <td>
+            {{ presenter.name }}
+        </td>
+        <td>
+            <a href="{% url 'presenter' presenter.id %}">Szczegóły</a>
+        </td>
+        <td>
+            <a href="{% url 'update-presenter' presenter.id %}">Edytuj</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-presenter' presenter.id %}">Usuń</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
+

@@ -19,6 +19,27 @@ class Room(models.Model):
     number = models.CharField(max_length=32)
     area = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=10)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
+    floor_number = models.IntegerField(null=False)
 
     def __str__(self):
         return f"Sala o numerze {self.number}"
+
+
+class Presenter(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    name = models.CharField(max_length=32)
+
+    def __str__(self):
+        return f"prezenter {self.name}"
+
+
+class Booking(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    name = models.CharField(max_length=32)
+    start = models.DateTimeField(null=False)
+    end = models.DateTimeField(null=False)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    presenter = models.ForeignKey(Presenter, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Booking {self.name}"

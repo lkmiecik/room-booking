@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Rezerwujący</h5>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>{{ presenter.id }}</td>
+    </tr>
+    <tr>
+        <td>Imię i nazwisko</td>
+        <td>{{ presenter.name }}</td>
+    </tr>
+</table>
+
+{% endblock content %}
