@@ -105,8 +105,9 @@ def presenters(request):
 
 
 def presenter(request, pk):
-    room_obj = Presenter.objects.get(id=pk)
-    context = {'presenter': room_obj}
+    presenter_obj = Presenter.objects.get(id=pk)
+    bookings = Booking.objects.filter(presenter=presenter_obj).order_by('start')
+    context = {'presenter': presenter_obj, 'bookings': bookings}
     return render(request, 'rooms/presenter_view.html', context)
 
 
@@ -186,3 +187,15 @@ def deleteBooking(request, pk):
     obj_str = f'Rezerwacje o nazwie {room_to_delete.name}'
     context = {'object': obj_str, 'redirection': 'presenters'}
     return render(request, 'rooms/delete_template.html', context=context)
+
+
+def bookRoom(request, pk):
+    form = BookingForm(initial={'room': pk})
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bookings')
+    context = {'form': form}
+    return render(request, 'rooms/booking_form.html', context)
+

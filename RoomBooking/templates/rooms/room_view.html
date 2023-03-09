@@ -36,6 +36,11 @@
         <td><a href="{% url 'booking' booking.id %}">Szczegóły</a></td>
     </tr>
     {% endfor %}
+    <tr>
+        <td colspan="3" class="text-center">
+            <a href="{% url 'book-room' room.id %}" class="btn btn-primary my-2">Zarezerwuj</a>
+        </td>
+    </tr>
 </table>
 
 

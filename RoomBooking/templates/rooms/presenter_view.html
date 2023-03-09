@@ -12,5 +12,23 @@
         <td>{{ presenter.name }}</td>
     </tr>
 </table>
+<h5>Wykonane Rezerwacje</h5>
+<table class="table">
+    <tr>
+        <th>Sala</th>
+        <th>Nazwa</th>
+    </tr>
+    {% for booking in bookings %}<tr>
+        <td>
+            {{ booking.room }}
+        </td>
+        <td>
+            {{ booking.start }} - {{ booking.end }}
+        </td>
+        <td>
+            <a href="{% url 'booking' booking.id %}">Szczegóły</a>
+        </td>
+    </tr>{% endfor %}
+</table>
 
 {% endblock content %}
