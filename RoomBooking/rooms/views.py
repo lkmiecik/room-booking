@@ -98,7 +98,8 @@ def deleteBuilding(request, pk):
 
 def reservingPerson(request, pk):
     reserving_person_obj = ReservingPerson.objects.get(id=pk)
-    context = {'reserving_person': reserving_person_obj}
+    reserving_rooms = Reservation.objects.filter(reserving_person=reserving_person_obj)
+    context = {'reserving_person': reserving_person_obj, 'reservations': reserving_rooms}
     return render(request, 'rooms/reserving_person_view.html', context)
 
 

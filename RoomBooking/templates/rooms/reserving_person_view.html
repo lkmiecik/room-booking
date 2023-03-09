@@ -15,6 +15,39 @@
         <td>Nazwisko</td>
         <td>{{ reserving_person.surname }}</td>
     </tr>
+    <tr>
+        <td>Zarezerwowane sale</td>
+        {% if reservations %}
+        <td>
+            <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>Nr sali</th>
+                    <th>Data</th>
+                    <th>Godziny</th>
+                </tr>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>
+                        <a href="{% url 'reservation' reservation.id %}">{{ reservation.id }}</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'room' reservation.room.id %}">{{ reservation.room.number }}</a>
+                    </td>
+                    <td>
+                        {{ reservation.date }}
+                    </td>
+                    <td>
+                        {{ reservation.start_time }} - {{ reservation.end_time }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+        {% else %}
+        <td>Brak</td>
+        {% endif %}
+    </tr>
 </table>
 
 {% endblock content %}
