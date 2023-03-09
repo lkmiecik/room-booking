@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Numer</th>
+        <th scope="col">Numer rezerwującego</th>
+        <th scope="col">Numer sali</th>
+        <th scope="col">Termin Od</th>
+        <th scope="col">Termin Do</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rezerwacja of rezerwacje">
+        <td>{{rezerwacja.id}}</td>
+        <td>{{rezerwacja.idRezerwujacy}}</td>
+        <td>{{rezerwacja.idSala}}</td>
+        <td>{{rezerwacja.terminOd | date }}</td>
+        <td>{{rezerwacja.terminDo | date }}</td>
+      </tr>
+    </tbody>
+</table>

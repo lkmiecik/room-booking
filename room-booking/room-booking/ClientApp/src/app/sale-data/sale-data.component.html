@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Numer</th>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Pojemność</th>
+        <th scope="col">Dostęp dla osób z niepełnosprawnością</th>
+        <th scope="col">Pietro</th>
+        <th scope="col">Numer budynku</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sala of sale">
+        <td>{{sala.id}}</td>
+        <td>{{sala.name}}</td>
+        <td>{{sala.pojemnosc}}</td>
+        <td *ngIf="sala.niepelnospr">Tak</td>
+        <td *ngIf="!sala.niepelnospr">Nie</td>
+        <td>{{sala.pietro}}</td>
+        <td>{{sala.idBudynek}}</td>
+      </tr>
+    </tbody>
+</table>

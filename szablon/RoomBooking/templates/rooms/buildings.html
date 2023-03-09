@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Lista budynków</h5>
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Numer</th>
+        <th></th>
+    </tr>
+    {% for building in buildings %}
+    <tr>
+        <td>
+            {{ building.id }}
+        </td>
+        <td>
+            {{ building.number }}
+        </td>
+        <td>
+            <a href="{% url 'building' building.id %}">Szczegóły</a>
+        </td>
+        <td>
+            <a href="{% url 'update-building' building.id %}">Edytuj</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-building' building.id %}">Usuń</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
