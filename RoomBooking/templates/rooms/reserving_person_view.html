@@ -1,52 +1,28 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h5>Sala {{ room.number }}</h5>
+<h5>Rezerwujący</h5>
 <table class="table">
     <tr>
         <td>Id</td>
-        <td>{{ room.id }}</td>
+        <td>{{ reserving_person.id }}</td>
     </tr>
     <tr>
-        <td>Powierzchnia w m2</td>
-        <td>{{ room.area }}</td>
+        <td>Imię</td>
+        <td>{{ reserving_person.name }}</td>
     </tr>
     <tr>
-        <td>Budynek</td>
-        <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
+        <td>Nazwisko</td>
+        <td>{{ reserving_person.surname }}</td>
     </tr>
     <tr>
-        <td>Piętro</td>
-        <td>{{ room.floor }}</td>
-    </tr>
-    <tr>
-        <td>Pojemność</td>
-        <td>{{ room.capacity }}</td>
-    </tr>
-    <tr>
-        <td>Wyposazenie</td>
-        {% if room.equipment %}
-        <td>{{ room.equipment }}</td>
-        {% else %}
-        <td>Brak</td>
-        {% endif %}
-    </tr>
-    <tr>
-        <td>Dostępność dla osób niepełnosprawnych</td>
-        {% if room.accessibility %}
-        <td>Tak</td>
-        {% else %}
-        <td>Nie</td>
-        {% endif %}
-    </tr>
-    <tr>
-        <td>Rezerwacje sali</td>
+        <td>Zarezerwowane sale</td>
         {% if reservations %}
         <td>
             <table class="table">
                 <tr>
                     <th>Id</th>
-                    <th>Rezerwujący</th>
+                    <th>Nr sali</th>
                     <th>Data</th>
                     <th>Godziny</th>
                 </tr>
@@ -56,7 +32,7 @@
                         <a href="{% url 'reservation' reservation.id %}">{{ reservation.id }}</a>
                     </td>
                     <td>
-                        <a href="{% url 'reserving-person' reservation.reserving_person.id %}">{{ reservation.reserving_person }}</a>
+                        <a href="{% url 'room' reservation.room.id %}">{{ reservation.room.number }}</a>
                     </td>
                     <td>
                         {{ reservation.date }}
