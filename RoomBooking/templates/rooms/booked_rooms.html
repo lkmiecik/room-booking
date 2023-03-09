@@ -8,6 +8,7 @@
         <th>Budynek</th>
         <th>Sala</th>
         <th>Data</th>
+        <th>Czas trwania</th>
     </tr>
     {% for reservation in reservations %}
     <tr>
@@ -23,6 +24,10 @@
         <td>
             {{ reservation.date }}
         </td>
+        <td>
+            {{ reservation.duration }}
+        </td>
+
 
         <td>
             <a href="{% url 'update-book' reservation.id %}">Edytuj</a>
