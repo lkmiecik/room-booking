@@ -35,7 +35,7 @@ class RoomForm(ModelForm):
     area = CharField(label='Powierzchnia w m2')
     capacity = CharField(label="Pojemność")
     eqiupment = CharField(label="Wyposażenie")
-    disabledFriendly = CharField(label="Dostęp dla osób z niepełnosprawnością")
+    disabledFriendly = BooleanField(label="Dostęp dla osób z niepełnosprawnością")
     building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
     floor = CharField(label="Piętro")
 

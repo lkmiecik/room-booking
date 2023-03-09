@@ -20,7 +20,7 @@ class Room(models.Model):
     area = models.CharField(null=True, blank=True, max_length=3)
     capacity = models.DecimalField(null=True, blank=True, decimal_places=0, max_digits=4)
     eqiupment = models.CharField(null=True, blank=True, max_length=200)
-    disabledFriendly = models.BooleanField(null=True, blank=True)
+    disabledFriendly = models.BooleanField(null=True, blank=False)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
     floor = models.CharField(max_length=2)
 
