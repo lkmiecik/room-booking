@@ -170,4 +170,4 @@ Wkleić wcześniej wygenerowany token i kliknąć Sign in.
 Wejść na stronę forka projektu
 https://github.com/[użytokwnik]/room-booking
 
-Rozwinąć menu Contribute i kliknąć Open Pull Request
+Rozwinąć menu Contribute i kliknąć Open Pull Reques
