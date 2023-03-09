@@ -11,6 +11,8 @@
 
 <h5>{{name}}</h5>
 <form>
+    Data rezerwacji:
+    <input type="date"><br>
     Godzina rezerwacji:
     <select>
         {% for option in options %}
@@ -18,8 +20,10 @@
         {% endfor %}
     </select><br>
     Długość rezerwacji: (godzina:minuta)
-    <input type="number" class='time-input' min='0' max='23' required >
-    :  <input type="number" class='time-input' min="0" max="59"required>
+    <input type="number" class='time-input' min='0' max='23' required >:
+    <input type="number" class='time-input' min="0" max="59"required>
+    <hr>
+    <button type="submit" value="Zatwierdź">Zatwierdź</button>
 </form>
 
 {% endblock content %}
