@@ -42,6 +42,14 @@ def updateRoom(request, pk):
     return render(request, 'rooms/room_form.html', context)
 
 
+def reserve_room(request, pk):
+    room_to_reserve = Room.objects.get(id=pk)
+    context = {
+
+    }
+    return render(request, 'room_reserve.html', context)
+
+
 def deleteRoom(request, pk):
     room_to_delete = Room.objects.get(id=pk)
     if request.method == 'POST':

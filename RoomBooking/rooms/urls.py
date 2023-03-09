@@ -6,6 +6,7 @@ urlpatterns = [
     path('room/<str:pk>', views.room, name='room'),
     path('create-room/', views.createRoom, name='create-room'),
     path('update-room/<str:pk>/', views.updateRoom, name="update-room"),
+    path('reserve-room/<str:pk>/', views.reserve_room, name="reserve-room"),
     path('delete-room/<str:pk>/', views.deleteRoom, name="delete-room"),
     path('buildings', views.buildings, name='buildings'),
     path('building/<str:pk>/', views.building, name="building"),

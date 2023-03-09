@@ -25,6 +25,9 @@
         <td>
             <a href="{% url 'delete-room' room.id %}">Usuń</a>
         </td>
+        <td>
+            <a href="{% url 'reserve-room' room.id %}">Zarezerwuj</a>
+        </td>
     </tr>
 
     {% endfor %}
