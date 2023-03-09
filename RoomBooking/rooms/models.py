@@ -18,7 +18,12 @@ class Room(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     number = models.CharField(max_length=32)
     area = models.DecimalField(null=True, blank=True, decimal_places=2, max_digits=10)
+    capacity = models.DecimalField(null=True, blank=True, decimal_places=0, max_digits=4)
+    eqiupment = models.TextField(null=True, blank=True)
+    disabledFriendly = models.BooleanField(null=True, blank=True)
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
+    floor = models.CharField(max_length=2)
+
 
     def __str__(self):
         return f"Sala o numerze {self.number}"

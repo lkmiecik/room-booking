@@ -42,8 +42,8 @@ class RoomForm(ModelForm):
 
 class ReservationForm(ModelForm):
     rezerwujacy = CharField(label='Rezerwujacy')
-    data = CharField(label='Data')
-    building = ModelChoiceField(label='Pokoj', queryset=Room.objects.all())
+    date = CharField(label='Data')
+    room = ModelChoiceField(label='Pokoj', queryset=Room.objects.all())
 
     class Meta:
         model = Reservation
