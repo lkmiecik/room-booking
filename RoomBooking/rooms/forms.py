@@ -33,11 +33,11 @@ class BuildingForm(ModelForm):
 class RoomForm(ModelForm):
     number = CharField(label='Numer')
     area = CharField(label='Powierzchnia w m2')
-    # capacity = CharField(label="Pojemność")
-    # eqiupment = CharField(label="Wyposażenie")
-    # disabledFriendly = BooleanField(label="Dostęp dla osób z niepełnosprawnością")
+    capacity = CharField(label="Pojemność")
+    eqiupment = CharField(label="Wyposażenie")
+    disabledFriendly = BooleanField(label="Dostęp dla osób z niepełnosprawnością")
     building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
-    # floor = CharField(label="Piętro")
+    floor = CharField(label="Piętro")
 
     class Meta:
         model = Room
