@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, ModelChoiceField, BooleanField
+from django.forms import ModelForm, CharField, ModelChoiceField, BooleanField, TimeField
 from django.core.exceptions import ValidationError
 from .models import Building, Room, Reservation
 
@@ -35,7 +35,7 @@ class RoomForm(ModelForm):
     area = CharField(label='Powierzchnia w m2')
     capacity = CharField(label="Pojemność")
     eqiupment = CharField(label="Wyposażenie")
-    disabledFriendly = BooleanField(label="Dostęp dla osób z niepełnosprawnością")
+    disabledFriendly = BooleanField(label="Dostęp dla osób z niepełnosprawnością", required=False)
     building = ModelChoiceField(label='Budynek', queryset=Building.objects.all())
     floor = CharField(label="Piętro")
 
@@ -46,8 +46,9 @@ class RoomForm(ModelForm):
 
 class ReservationForm(ModelForm):
     rezerwujacy = CharField(label='Rezerwujacy')
-    date = CharField(label='Data')
     room = ModelChoiceField(label='Pokoj', queryset=Room.objects.all())
+    date = CharField(label='Data')
+    duration = TimeField(label='Czas trwania')
 
     class Meta:
         model = Reservation
