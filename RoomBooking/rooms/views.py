@@ -43,9 +43,21 @@ def updateRoom(request, pk):
 
 
 def reserve_room(request, pk):
-    room_to_reserve = Room.objects.get(id=pk)
-    context = {
+    def get_hour_list():
+        hours = []
+        for i in range(0, 24):
+            for j in range(1, 5):
+                if j == 4:
+                    hours.insert(len(hours) - 3, f"{i}:00")
+                else:
+                    hours.append(f"{i}:{j * 15}")
+        return hours
 
+    room_to_reserve = Room.objects.get(id=pk)
+    hours = get_hour_list()
+    context = {
+        'options': hours,
+        'name': f"Sala o numerze {room_to_reserve.number}"
     }
     return render(request, 'rooms/room_reserve.html', context)
 
