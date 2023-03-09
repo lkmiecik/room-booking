@@ -4,17 +4,40 @@
 <h5>Lista sal</h5>
 <table class="table">
     <tr>
-        <th>Id</th>
         <th>Numer</th>
-        <th></th>
+        <th>Powierzchnia (m^2)</th>
+        <th>Budynek</th>
+        <th>Ilość siedzeń</th>
+        <th>Wyposażenie sali</th>
+        <th>Przystosowanie dla niepełnosprawnych</th>
+        <th>Piętro</th>
+        <th>Ilość aktywnych rezerwacji</th>
     </tr>
     {% for room in rooms %}
     <tr>
         <td>
-            {{ room.id }}
+            {{ room.number }}
         </td>
         <td>
-            {{ room.number }}
+            {{ room.area }}
+        </td>
+        <td>
+            {{ room.building }}
+        </td>
+        <td>
+            {{ room.seats }}
+        </td>
+        <td>
+            {{ room.equipment }}
+        </td>
+        <td>
+            {{ room.disability|yesno:"Tak,Nie" }}
+        </td>
+        <td>
+            {{ room.floor }}
+        </td>
+        <td>
+            {{ rsrv|_hash:room.number }}
         </td>
         <td>
             <a href="{% url 'room' room.id %}">Szczegóły</a>
