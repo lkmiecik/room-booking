@@ -9,21 +9,22 @@
     }
 </style>
 
-<h5>{{name}}</h5>
+<h5> Sala o numerze {{ room.number }}</h5>
 <hr>
 <h6>Informacje o sali:</h6>
     <section>
         <p>
-            Pojemność: <br>
-            Powierzchnia: <br>
-            Wyposażenie: <br>
-            Dostęp dla osób z niepełnosprawnością: <br>
-            Piętro: <br>
-            Budynek: <br>
-            Dostępność w danym terminie: <br>
+            <b>Pojemność:</b> {{ room.volume }}<br>
+            <b>Powierzchnia:</b> {{ room.area }}m<sup>2</sup><br>
+            <b>Wyposażenie:</b> {{ room.equipment }} <br>
+            <b>Dostęp dla osób z niepełnosprawnością: </b>{{ handicapped }}<br>
+            <b>Piętro:</b> {{ room.floor }} <br>
+            <b>Budynek:</b> Budynek o numerze {{ building.number }} <br>
+            <b>Dostępność w danym terminie:</b> <br>
         </p>
     </section>
 <hr>
+
 <h6>Zarezerwuj sale:</h6>
 <form>
     Data rezerwacji:

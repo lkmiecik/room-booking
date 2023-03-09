@@ -55,9 +55,14 @@ def reserve_room(request, pk):
 
     room_to_reserve = Room.objects.get(id=pk)
     hours = get_hour_list()
+    handicapped = "tak"
+    if not room_to_reserve.handicapped:
+        handicapped = "nie"
     context = {
         'options': hours,
-        'name': f"Sala o numerze {room_to_reserve.number}"
+        'room': room_to_reserve,
+        'building': room_to_reserve.building,
+        'handicapped': handicapped
     }
     return render(request, 'rooms/room_reserve.html', context)
 
