@@ -35,7 +35,7 @@ class MetadataName(Enum):
         translations = {
             MetadataName.wheelchair_access: 'Dostęp dla wózków',
             MetadataName.projector: 'Projektor',
-            MetadataName.whiteboard: 'Tablica',
+            MetadataName.whiteboard: 'Tablica suchościeralna',
             MetadataName.speakers: 'Głośniki',
         }
         return translations.get(self, self.value)

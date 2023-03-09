@@ -43,7 +43,7 @@ class RoomForm(ModelForm):
         super().__init__(*args, **kwargs)
         for name in MetadataName:
             init = RoomMetadata.objects.filter(room=self.instance.id, name=name.value).first()
-            self.fields[name.value] = BooleanField(label=name.name, required=False, initial=init)
+            self.fields[name.value] = BooleanField(label=MetadataName(name.name).display(), required=False, initial=init)
 
     def save(self, commit=True):
         room = super().save(commit=False)
@@ -89,10 +89,7 @@ class BookingForm(ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['start'].widget.attrs['step'] = 900
         self.fields['end'].widget.attrs['step'] = 900
-        self.fields['room'].room_label = self.room_label
-
-    def room_label(self, obj: Room):
-        return f"Sala o numerze {obj.number} w budynku {obj.building.number}"
+        self.fields['room'].label_from_instance = lambda obj: f"{obj} ({obj.building})"
 
     def clean(self):
         cleaned_data = super().clean()

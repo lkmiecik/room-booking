@@ -135,11 +135,11 @@ def updatePresenter(request, pk):
 
 
 def deletePresenter(request, pk):
-    room_to_delete = Presenter.objects.get(id=pk)
+    presenter_to_delete = Presenter.objects.get(id=pk)
     if request.method == 'POST':
-        room_to_delete.delete()
+        presenter_to_delete.delete()
         return redirect('presenters')
-    obj_str = f'Rezerwującego o numerze {room_to_delete.number}'
+    obj_str = f'Rezerwującego {presenter_to_delete.name}'
     context = {'object': obj_str, 'redirection': 'presenters'}
     return render(request, 'rooms/delete_template.html', context=context)
 
