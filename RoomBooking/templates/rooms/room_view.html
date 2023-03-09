@@ -15,6 +15,12 @@
         <td>Budynek</td>
         <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
     </tr>
+    <tr>
+        <td>Ugodnienia</td>
+        <td>{% for m in meta %}
+          <span>{{ m }}</span>{% if not forloop.last %}, {% endif %}
+        {% endfor %}</td>
+    </tr>
 </table>
 <h5>Rezerwacje w Sali</h5>
 <table class="table">
