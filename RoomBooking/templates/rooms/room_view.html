@@ -12,6 +12,22 @@
         <td>{{ room.area }}</td>
     </tr>
     <tr>
+        <td>Ilość siedzeń</td>
+        <td>{{ room.seats }}</td>
+    </tr>
+    <tr>
+        <td>Wyposażenie sali</td>
+        <td>{{ room.equipment }}</td>
+    </tr>
+    <tr>
+        <td>Piętro</td>
+        <td>{{ room.floor }}</td>
+    </tr>
+    <tr>
+        <td>Przystosowanie dla niepełnosprawnych</td>
+        <td>{{ room.disability }}</td>
+    </tr>
+    <tr>
         <td>Budynek</td>
         <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
     </tr>

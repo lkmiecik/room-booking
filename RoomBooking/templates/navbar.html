@@ -17,5 +17,19 @@
             <a class="dropdown-item" href="{% url 'create-room' %}">Dodaj Salę</a>
         </div>
     </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Użytkownicy</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'users' %}">Lista użytkowników</a>
+            <a class="dropdown-item" href="{% url 'create-user' %}">Dodaj użytkownika</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rezerwacje</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'reservations' %}">Lista rezerwacji</a>
+            <a class="dropdown-item" href="{% url 'create-reservations' %}">Dodaj rezerwację</a>
+        </div>
+    </li>
 </ul>
 </div>

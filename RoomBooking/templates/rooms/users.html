@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h5>Lista użytkowników</h5>
+<table class="table">
+    <tr>
+        <th>Email</th>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th></th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>
+            {{ user.email }}
+        </td>
+        <td>
+            {{ user.fname }}
+        </td>
+        <td>
+            {{ user.lname }}
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
+

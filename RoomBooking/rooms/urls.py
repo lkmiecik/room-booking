@@ -12,5 +12,9 @@ urlpatterns = [
     path('create-building/', views.createBuilding, name='create-building'),
     path('update-building/<str:pk>/', views.updateBuilding, name="update-building"),
     path('delete-building/<str:pk>/', views.deleteBuilding, name="delete-building"),
+    path('create-user/', views.createUser, name="create-user"),
+    path('users',views.users, name="users"),
+    path('create-reservations/', views.createReservation, name="create-reservations"),
+    path('reservations', views.reservations, name="reservations"),
 ]
 
