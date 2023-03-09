@@ -33,7 +33,7 @@
 
     <tr>
         <td>Dla niepełnosprawnych</td>
-        <td>{{ room.disabledFriendly }}</td>
+        <td>{{ room.disabledFriendly|yesno:"Tak,Nie"  }}</td>
     </tr>
 </table>
 
