@@ -78,8 +78,17 @@ class BookingForm(ModelForm):
         cleaned_data = super().clean()
         start_time = cleaned_data.get('start')
         end_time = cleaned_data.get('end')
+        room = cleaned_data.get('room')
+
         if start_time and end_time and start_time >= end_time:
             raise ValidationError('Godzina zakończenia musi być późniejsza niż godzina rozpoczęcia.')
+
+        if (end_time - start_time).seconds // 3600 > 8:
+            raise ValidationError('Rezerwacja nie może trwać dłużej niż 8 godzin.')
+
+        if Booking.objects.filter(room=room, start__lt=end_time, end__gt=start_time):
+            raise ValidationError('Wybrana sala jest już zarezerwowana w tym czasie.')
+
         return cleaned_data
 
     class Meta:
