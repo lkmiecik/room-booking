@@ -25,7 +25,21 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('number', models.CharField(max_length=32)),
                 ('area', models.DecimalField(decimal_places=2, max_digits=10, null=True)),
+                ('capacity', models.DecimalField(null=True, blank=True, decimal_places=0, max_digits=4)),
+                ('eqiupment', models.CharField(null=True, blank=True, max_length=200)),
+                ('disabledFriendly', models.BooleanField(null=True, blank=False)),
                 ('building', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='rooms.building')),
+                ('floor', models.CharField(max_length=2)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Reservation',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('rezerwujacy', models.CharField(max_length=64)),
+                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='rooms.building')),
+                ('duration', models.TimeField()),
+                ('date', models.DateTimeField()),
             ],
         ),
     ]
