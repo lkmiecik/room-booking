@@ -11,10 +11,15 @@
         <td>Powierzchnia w m2</td>
         <td>{{ room.area }}</td>
     </tr>
+     <tr>
+        <td> Ilosc osob</td>
+        <td> {{room.po}}</td>
+    </tr>
     <tr>
         <td>Budynek</td>
         <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
     </tr>
+
 </table>
 
 {% endblock content %}
