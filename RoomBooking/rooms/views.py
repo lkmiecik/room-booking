@@ -5,7 +5,11 @@ from .forms import BuildingForm, RoomForm
 
 
 # Create your views here.
+def reservations(request):
+    return render(request, 'rooms/booked_rooms.html')
 
+def bookRoom(request):
+    return render(request, 'rooms/room_book.html')
 
 def rooms(request):
     all_rooms = Room.objects.distinct()

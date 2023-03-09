@@ -8,26 +8,26 @@
         <th>Numer</th>
         <th></th>
     </tr>
-    {% for room in booked_rooms %}
-    <tr>
-        <td>
-            {{ room.id }}
-        </td>
-        <td>
-            {{ room.number }}
-        </td>
-        <td>
-            <a href="{% url 'room' room.id %}">Szczegóły</a>
-        </td>
-        <td>
-            <a href="{% url 'update-room' room.id %}">Edytuj</a>
-        </td>
-        <td>
-            <a href="{% url 'delete-room' room.id %}">Usuń</a>
-        </td>
-    </tr>
+<!--    {% for room in booked_rooms %}-->
+<!--    <tr>-->
+<!--        <td>-->
+<!--            {{ room.id }}-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            {{ room.number }}-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <a href="{% url 'room' room.id %}">Szczegóły</a>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <a href="{% url 'update-room' room.id %}">Edytuj</a>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <a href="{% url 'delete-room' room.id %}">Usuń</a>-->
+<!--        </td>-->
+<!--    </tr>-->
 
-    {% endfor %}
+<!--    {% endfor %}-->
 </table>
 
 
