@@ -32,7 +32,7 @@ class Reservation(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     rezerwujacy = models.CharField(max_length=64, null=True, blank=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField()
 
     def __str__(self):
         return f"Rezerwacja dla {self.rezerwujacy}"

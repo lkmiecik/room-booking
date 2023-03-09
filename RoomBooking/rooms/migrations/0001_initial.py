@@ -28,4 +28,13 @@ class Migration(migrations.Migration):
                 ('building', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='rooms.building')),
             ],
         ),
+        migrations.CreateModel(
+            name='Reservation',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('rezerwujacy', models.CharField(max_length=64)),
+                ('room', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='rooms.building')),
+                ('date', models.DateTimeField()),
+            ],
+        ),
     ]
