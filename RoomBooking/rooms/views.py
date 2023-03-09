@@ -15,7 +15,8 @@ def rooms(request):
 
 def room(request, pk):
     room_obj = Room.objects.get(id=pk)
-    context = {'room': room_obj}
+    room_bookings = Booking.objects.filter(room=room_obj).order_by('start')
+    context = {'room': room_obj, 'bookings': room_bookings}
     return render(request, 'rooms/room_view.html', context)
 
 

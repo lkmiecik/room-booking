@@ -21,11 +21,11 @@
     </tr>
     <tr>
         <td>Sala</td>
-        <td>{{ booking.room }}</td>
+        <td><a href="{% url 'room' booking.room.id %}">{{ booking.room }} w {{ booking.room.building }}</a></td>
     </tr>
     <tr>
         <td>Rezerwujący</td>
-        <td>{{ booking.presenter }}</td>
+        <td><a href="{% url 'presenter' booking.presenter.id %}">{{ booking.presenter }}</a></td>
     </tr>
 </table>
 
