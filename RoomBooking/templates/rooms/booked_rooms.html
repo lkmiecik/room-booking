@@ -15,10 +15,10 @@
             {{ reservation.rezerwujacy }}
         </td>
         <td>
-            {{ reservation.room.building.number }}
+            <a href="{% url 'building' reservation.room.building.id %}">{{ reservation.room.building.number }}</a>
         </td>
         <td>
-            {{ reservation.room.number }}
+            <a href="{% url 'room' reservation.room.id %}">{{ reservation.room.number }}</a>
         </td>
         <td>
             {{ reservation.date }}
