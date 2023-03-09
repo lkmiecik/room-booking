@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
-from .models import Room, Building
+from .models import Room, Building, Reservation
 from django.contrib.auth.models import User
 from .forms import BuildingForm, RoomForm, ReservationForm
 
 
 # Create your views here.
 def reservations(request):
-    return render(request, 'rooms/booked_rooms.html')
+    all_res = Reservation.objects.distinct()
+    context = {'reservations': all_res}
+    return render(request, 'rooms/booked_rooms.html', context)
 
 def bookRoom(request):
     form = ReservationForm
@@ -14,7 +16,7 @@ def bookRoom(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('reservations')
+            return redirect('booked-rooms')
     context = {'form': form}
 
     return render(request, 'rooms/room_book.html', context)

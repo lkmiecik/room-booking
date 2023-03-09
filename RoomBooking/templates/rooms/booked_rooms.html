@@ -4,30 +4,29 @@
 <h5>Lista rezerwacji</h5>
 <table class="table">
     <tr>
-        <th>Id</th>
-        <th>Numer</th>
-        <th></th>
+        <th>Rezerwujący</th>
+        <th>Budynek</th>
+        <th>Sala</th>
+        <th>Data</th>
     </tr>
-<!--    {% for room in booked_rooms %}-->
-<!--    <tr>-->
-<!--        <td>-->
-<!--            {{ room.id }}-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            {{ room.number }}-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <a href="{% url 'room' room.id %}">Szczegóły</a>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <a href="{% url 'update-room' room.id %}">Edytuj</a>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <a href="{% url 'delete-room' room.id %}">Usuń</a>-->
-<!--        </td>-->
-<!--    </tr>-->
+    {% for reservation in reservations %}
+    <tr>
+        <td>
+            {{ reservation.rezerwujacy }}
+        </td>
+        <td>
+            {{ reservation.room.building.number }}
+        </td>
+        <td>
+            {{ reservation.room.number }}
+        </td>
+        <td>
+            {{ reservation.date }}
+        </td>
 
-<!--    {% endfor %}-->
+    </tr>
+
+    {% endfor %}
 </table>
 
 
