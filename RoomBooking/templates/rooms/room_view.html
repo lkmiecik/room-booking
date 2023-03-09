@@ -15,6 +15,26 @@
         <td>Budynek</td>
         <td><a href="{% url 'building' room.building.id %}">{{ room.building }}</a></td>
     </tr>
+
+    <tr>
+        <td>Pojemność</td>
+        <td>{{ room.capacity }}</td>
+    </tr>
+
+    <tr>
+        <td>Wyposażenie</td>
+        <td>{{ room.eqiupment }}</td>
+    </tr>
+
+    <tr>
+        <td>Piętro</td>
+        <td>{{ room.floor }}</td>
+    </tr>
+
+    <tr>
+        <td>Dla niepełnosprawnych</td>
+        <td>{{ room.disabledFriendly }}</td>
+    </tr>
 </table>
 
 {% endblock content %}
