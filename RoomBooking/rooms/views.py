@@ -47,7 +47,7 @@ def reserve_room(request, pk):
     context = {
 
     }
-    return render(request, 'room_reserve.html', context)
+    return render(request, 'rooms/room_reserve.html', context)
 
 
 def deleteRoom(request, pk):
