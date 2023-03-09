@@ -1,0 +1,42 @@
+{% extends 'adminpanel/base.html' %}
+{% block content %}
+
+    <h5>Lista rezerwacji</h5>
+    {#    <a href="{% url 'create-building' %}" class="btn btn-success">Dodaj budynek!</a>#}
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Data rozpoczęcia</th>
+            <th>Data zakończenia</th>
+            <th>Id użytkownika</th>
+            <th>Status transakcji</th>
+            <th>Usuń</th>
+        </tr>
+        {% for reservation in reservations %}
+            <tr>
+                <td>
+                    {{ reservation.id }}
+                </td>
+                <td>
+                    {{ reservation.wynajem_od }}
+                </td>
+                <td>
+                    {{ reservation.wynajem_do }}
+                </td>
+                <td>
+                    {{ reservation.user_id }}
+                </td>
+                <td>
+                    {% if reservation.status_transakcji %}Opłacono{% else %}Nieopłacono{% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'delete-reservation' reservation.id %}" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock content %}

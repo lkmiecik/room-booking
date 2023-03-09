@@ -1,0 +1,18 @@
+{% extends 'adminpanel/base.html' %}
+{% block title %}Logowanie do panelu zarządzania{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="p-3 text-center mt-5">Logowanie do panelu</h1>
+        <form action="" method="post" style="position: absolute;
+                                             text-align: center;
+                                             top: 50%;
+                                             left: 50%;
+                                             transform: translate(-50%, -50%);">
+            {% csrf_token %}{{ form|crispy }}
+            <button type="submit" class="btn btn-success">Zaloguj się</button>
+        </form>
+
+    </div>
+{% endblock %}

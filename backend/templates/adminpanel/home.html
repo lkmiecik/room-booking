@@ -1,0 +1,12 @@
+{% extends 'adminpanel/base.html' %}
+{% block title %}Panel zarządzania{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Prosty panel zarządzania pomieszczeniami!</h1>
+
+        <a href="{% url 'rooms' %}" class="btn btn-primary ms-1 me-1">Sale</a>
+        <a href="{% url 'buildings' %}" class="btn btn-primary ms-1 me-1">Budynki</a>
+        <a href="{% url 'reservations' %}" class="btn btn-primary ms-1 me-1">Rezerwacje</a>
+    </div>
+{% endblock %}

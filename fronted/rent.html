@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Hackathon 2023</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <ul>
+                <li>
+                    <img src="img/logo.png">
+                </li>
+            </ul>
+            <ul>
+                <li>Główna<span></span></li>
+                <li>Wynajmij<span></span></li>
+                <li>Pomoc<span></span></li>
+                <li>
+                    <img src="img/icons/account.svg">
+                </li>
+            </ul>
+        </nav>
+        <section>
+            <div class="rentForm">
+                <div>
+                    <input type="datetime-local" id="wynajemod"> <input type="datetime-local" id="wynajemdo">
+                    <div>
+                        <label>
+                            <input type="checkbox" id="projector"><br> <span>Projektor</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="audio"><br> <span>Audio</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="tablica"><br> <span>Tablica</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="wifi"><br> <span>Wifi</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="ac"><br> <span>Klimatyzacja</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="catering"><br> <span>Katering</span>
+                        </label>
+                    </div>
+                    <input type="number" placeholder="Ilość osób" id="personNum">
+                    <input type="button" value="Wyślij" id="send">
+                </div>
+                <div id="out">
+                    <article>
+                        <div></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <aside></aside>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
